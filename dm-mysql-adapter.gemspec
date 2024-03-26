@@ -16,5 +16,4 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('dm-do-adapter', ['~> 1.3.0.beta'])
   gem.add_runtime_dependency('do_mysql',      ['~> 0.10.6'])
-
 end
