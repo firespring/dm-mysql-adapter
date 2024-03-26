@@ -14,10 +14,18 @@ CURRENT_BRANCH = ENV.fetch('GIT_BRANCH', 'master')
 do_options = {}
 do_options[:git] = "#{DATAMAPPER}/datamapper-do#{REPO_POSTFIX}" if ENV['DO_GIT'] == 'true'
 
-gem 'dm-do-adapter', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-do-adapter#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+if SOURCE == :path
+  gem 'dm-do-adapter', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-do-adapter#{REPO_POSTFIX}"
+else
+  gem 'dm-do-adapter', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-do-adapter#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+end
 
 group :development do
-  gem 'dm-migrations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-migrations#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+  if SOURCE == :path
+    gem 'dm-migrations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-migrations#{REPO_POSTFIX}"
+  else
+    gem 'dm-migrations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-migrations#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+  end
 end
 
 platforms :mri_18 do
@@ -29,7 +37,11 @@ platforms :mri_18 do
 end
 
 group :datamapper do
-  gem 'dm-core', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+  if SOURCE == :path
+    gem 'dm-core', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+  else
+    gem 'dm-core', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+  end
 
   gem 'data_objects', DO_VERSION, do_options.dup
 
@@ -37,6 +49,10 @@ group :datamapper do
   plugins = plugins.to_s.tr(',', ' ').split.push('dm-migrations').uniq
 
   plugins.each do |plugin|
-    gem plugin, DM_VERSION, SOURCE => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+    if SOURCE == :path
+      gem plugin, DM_VERSION, SOURCE => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}"
+    else
+      gem plugin, DM_VERSION, SOURCE => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}", branch: CURRENT_BRANCH
+    end
   end
 end
