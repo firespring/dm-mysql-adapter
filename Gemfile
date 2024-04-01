@@ -26,6 +26,8 @@ group :development do
   else
     gem 'dm-migrations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-migrations#{REPO_POSTFIX}", branch: CURRENT_BRANCH
   end
+  gem 'rake', '~> 13.1'
+  gem 'rake-compiler', '~> 1.2'
 end
 
 platforms :mri_18 do
