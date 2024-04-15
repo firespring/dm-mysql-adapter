@@ -6,19 +6,19 @@ module DataMapper
 
     class MysqlAdapter < DataObjectsAdapter
 
-      module SQL #:nodoc:
+      module SQL # :nodoc:
 
         IDENTIFIER_MAX_LENGTH = 64
 
         private
 
         # @api private
-        def supports_default_values? #:nodoc:
+        def supports_default_values? # :nodoc:
           false
         end
 
         # @api private
-        def supports_subquery?(query, source_key, target_key, qualify)
+        def supports_subquery?(_query, _source_key, _target_key, _qualify)
           # TODO: renable once query does not include target_model for deletes and updates
           # query.limit.nil?
 
@@ -26,7 +26,7 @@ module DataMapper
         end
 
         # @api private
-        def regexp_operator(operand)
+        def regexp_operator(_operand)
           'REGEXP'
         end
 
