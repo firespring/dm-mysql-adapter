@@ -1,10 +1,10 @@
-require 'rspec/core/rake_task'
-
 spec_defaults = lambda do |spec|
   spec.pattern = 'spec/**/*_spec.rb'
 end
 
 begin
+  require 'rspec/core/rake_task'
+
   task(:default).clear
   task(:spec).clear
 
