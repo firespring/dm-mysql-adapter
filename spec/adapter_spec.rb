@@ -14,7 +14,6 @@ describe 'DataMapper::Adapters::MysqlAdapter' do
   let(:adapter)    { DataMapper::Spec.adapter }
   let(:repository) { DataMapper.repository(adapter.name) }
 
-  it_should_behave_like 'An Adapter'
-  it_should_behave_like 'A DataObjects Adapter'
-
+  it_behaves_like 'An Adapter'
+  it_behaves_like 'A DataObjects Adapter'
 end
