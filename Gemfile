@@ -21,11 +21,11 @@ group :development do
   gem 'dm-migrations', DM_VERSION, options.dup
   gem 'rake', '~> 13.1'
   gem 'rake-compiler', '~> 1.2'
+  gem 'simplecov'
 end
 
 platforms :mri_18 do
   group :quality do
-    gem 'rcov'
     gem 'yard'
     gem 'yardstick'
   end
