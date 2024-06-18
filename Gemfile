@@ -19,6 +19,8 @@ gem 'dm-do-adapter', DM_VERSION, options.dup
 group :development do
   options[SOURCE] = "#{DATAMAPPER}/dm-migrations#{REPO_POSTFIX}"
   gem 'dm-migrations', DM_VERSION, options.dup
+  gem 'pry'
+  gem 'pry-byebug'
   gem 'rake', '~> 13.1'
   gem 'rake-compiler', '~> 1.2'
   gem 'simplecov'
