@@ -39,6 +39,8 @@ group :datamapper do
   gem 'dm-core', DM_VERSION, options.dup
 
   do_options = {}
+  # DO_GIT is for the DataObjects repo which is not managed with thor in the same way as the rest of the gems. It is possible to have SOURCE configured
+  # as path while datamapper-do should use git. Configure these options separately.
   if ENV['DO_GIT'] == 'true'
     do_options = options.dup
     do_options[SOURCE] = "#{DATAMAPPER}/datamapper-do#{REPO_POSTFIX}"
