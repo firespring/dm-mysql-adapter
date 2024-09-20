@@ -1,7 +1,7 @@
 require File.expand_path('lib/dm-mysql-adapter/version', __dir__)
 
 Gem::Specification.new do |gem|
-  gem.name        = 'dm-mysql-adapter'
+  gem.name        = 'sbf-dm-mysql-adapter'
   gem.summary     = 'MySQL Adapter for DataMapper'
   gem.description = 'A MySQL Adapter for DataMapper'
   gem.email       = 'dan.kubb@gmail.com'
