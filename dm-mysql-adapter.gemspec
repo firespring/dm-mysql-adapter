@@ -16,6 +16,6 @@ Gem::Specification.new do |gem|
   gem.version       = DataMapper::MysqlAdapter::VERSION
   gem.required_ruby_version = '>= 2.7.8'
 
-  gem.add_runtime_dependency('dm-do-adapter', ['~> 1.3.0.beta'])
-  gem.add_runtime_dependency('do_mysql', ['~> 0.10.17'])
+  gem.add_runtime_dependency('sbf-dm-do-adapter', ['~> 1.3.0.beta'])
+  gem.add_runtime_dependency('sbf-do_mysql', ['~> 0.10.17'])
 end

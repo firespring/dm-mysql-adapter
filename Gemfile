@@ -14,11 +14,11 @@ CURRENT_BRANCH = ENV.fetch('GIT_BRANCH', 'master')
 options = {}
 options[SOURCE] = "#{DATAMAPPER}/dm-do-adapter#{REPO_POSTFIX}"
 options[:branch] = CURRENT_BRANCH unless SOURCE == :path
-gem 'dm-do-adapter', DM_VERSION, options.dup
+gem 'sbf-dm-do-adapter', DM_VERSION, options.dup
 
 group :development do
   options[SOURCE] = "#{DATAMAPPER}/dm-migrations#{REPO_POSTFIX}"
-  gem 'dm-migrations', DM_VERSION, options.dup
+  gem 'sbf-dm-migrations', DM_VERSION, options.dup
   gem 'pry'
   gem 'pry-byebug'
   gem 'rake', '~> 13.1'
@@ -36,7 +36,7 @@ end
 group :datamapper do
   options[SOURCE] = "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
 
-  gem 'dm-core', DM_VERSION, options.dup
+  gem 'sbf-dm-core', DM_VERSION, options.dup
 
   do_options = {}
   # DO_GIT is for the DataObjects repo which is not managed with thor in the same way as the rest of the gems. It is possible to have SOURCE configured
@@ -46,13 +46,13 @@ group :datamapper do
     do_options[SOURCE] = "#{DATAMAPPER}/datamapper-do#{REPO_POSTFIX}"
   end
 
-  gem 'data_objects', DO_VERSION, do_options.dup
+  gem 'sbf-data_objects', DO_VERSION, do_options.dup
 
   plugins = ENV['PLUGINS'] || ENV.fetch('PLUGIN', nil)
   plugins = plugins.to_s.tr(',', ' ').split.push('dm-migrations').uniq
 
   plugins.each do |plugin|
     options[SOURCE] = "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}"
-    gem plugin, DM_VERSION, options.dup
+    gem "sbf-#{plugin}", DM_VERSION, options.dup
   end
 end
