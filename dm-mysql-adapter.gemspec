@@ -4,9 +4,9 @@ Gem::Specification.new do |gem|
   gem.name        = 'sbf-dm-mysql-adapter'
   gem.summary     = 'MySQL Adapter for DataMapper'
   gem.description = 'A MySQL Adapter for DataMapper'
-  gem.email       = 'dan.kubb@gmail.com'
+  gem.email       = ['opensource@firespring.com']
   gem.homepage    = 'https://datamapper.org'
-  gem.authors     = ['Dan Kubb']
+  gem.authors     = ['opensource_firespring']
   gem.license = 'Nonstandard'
 
   gem.files            = `git ls-files`.split("\n")
