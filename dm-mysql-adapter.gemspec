@@ -1,12 +1,12 @@
 require File.expand_path('lib/dm-mysql-adapter/version', __dir__)
 
 Gem::Specification.new do |gem|
-  gem.name        = 'dm-mysql-adapter'
+  gem.name        = 'sbf-dm-mysql-adapter'
   gem.summary     = 'MySQL Adapter for DataMapper'
   gem.description = 'A MySQL Adapter for DataMapper'
-  gem.email       = 'dan.kubb@gmail.com'
+  gem.email       = ['opensource@firespring.com']
   gem.homepage    = 'https://datamapper.org'
-  gem.authors     = ['Dan Kubb']
+  gem.authors     = ['opensource_firespring']
   gem.license = 'Nonstandard'
 
   gem.files            = `git ls-files`.split("\n")
@@ -16,6 +16,6 @@ Gem::Specification.new do |gem|
   gem.version       = DataMapper::MysqlAdapter::VERSION
   gem.required_ruby_version = '>= 2.7.8'
 
-  gem.add_runtime_dependency('dm-do-adapter', ['~> 1.3.0.beta'])
-  gem.add_runtime_dependency('do_mysql', ['~> 0.10.17'])
+  gem.add_runtime_dependency('sbf-dm-do-adapter', ['~> 1.3.0.beta'])
+  gem.add_runtime_dependency('sbf-do_mysql', ['~> 0.10.17'])
 end
